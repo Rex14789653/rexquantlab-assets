@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Rex 量化研究室｜Threads 授權</title>
+<style>
+  body { margin: 0; background: #0A121C; color: #E8EEF4; font: 16px/1.7 "Microsoft JhengHei", sans-serif; }
+  main { max-width: 640px; margin: 0 auto; padding: 48px 16px; }
+  h1 { color: #F7C948; font-size: 22px; }
+  p { color: #B8C4D0; }
+  .ok { color: #3FE0FF; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Rex 量化研究室｜Threads 授權</h1>
+  <p id="msg">這是 Threads API 授權的跳轉頁，本頁不會儲存或傳送任何資料。</p>
+</main>
+<script>
+  // 只在本機瀏覽器顯示狀態；授權碼留在網址列，由 Rex 複製到本機程式
+  var q = new URLSearchParams(location.search);
+  var el = document.getElementById("msg");
+  if (q.get("code")) {
+    el.className = "ok";
+    el.textContent = "✅ 授權成功。請複製網址列的整串網址，貼到 PowerShell 執行 threads_auth.py exchange。";
+  } else if (q.get("error")) {
+    el.textContent = "授權沒有完成：" + (q.get("error_description") || q.get("error"));
+  }
+</script>
+</body>
+</html>
